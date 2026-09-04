@@ -51,6 +51,7 @@ export default defineConfig({
 						{ label: 'Benutzerverwaltung', slug: 'features/benutzerverwaltung', translations: { en: 'User Management' } },
 						{ label: 'Einlesemodus für Rechtstexte', slug: 'features/einlesemodus', translations: { en: 'Legal Text Import Mode' } },
 						{ label: 'Backup-Wiederherstellung', slug: 'features/backup-restore', translations: { en: 'Backup Restore' } },
+						{ label: 'Projekt-Export & -Import', slug: 'features/project-transfer', translations: { en: 'Project Export & Import' } },
 					],
 				},
 				{

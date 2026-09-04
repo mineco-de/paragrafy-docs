@@ -103,3 +103,7 @@ Applies unchanged to both [Managed Cloud](/en/managed-cloud/overview/) and
   switching between self-hosting and Managed Cloud easier. Also works with backups from older
   Paragrafy versions. See [Backup Restore](/en/features/backup-restore/) for the full
   workflow.
+- **Project Export & Import**:
+  Transfers just a single project between two instances, without touching any other projects on
+  the target instance — matched by domain, it either merges into an existing project or creates a
+  new one. See [Project Export & Import](/en/features/project-transfer/).

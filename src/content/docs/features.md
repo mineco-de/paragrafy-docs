@@ -105,3 +105,7 @@ Gilt unverändert für [Managed Cloud](/managed-cloud/overview/) und
   ersetzen — erleichtert den Wechsel zwischen Self-Hosting und Managed Cloud. Funktioniert auch
   mit Backups aus älteren Paragrafy-Versionen. Siehe
   [Backup-Wiederherstellung](/features/backup-restore/) für den vollständigen Ablauf.
+- **Projekt-Export & -Import**:
+  Überträgt gezielt nur ein einzelnes Projekt zwischen zwei Instanzen, ohne andere Projekte der
+  Zielinstanz anzutasten — per Domain-Abgleich wird ein bestehendes Projekt zusammengeführt oder
+  ein neues angelegt. Siehe [Projekt-Export & -Import](/features/project-transfer/).
