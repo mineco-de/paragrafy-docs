@@ -100,3 +100,8 @@ Gilt unverändert für [Managed Cloud](/managed-cloud/overview/) und
 - **Backups & Exporte**:
   Lade in den Einstellungen eine Sicherungskopie der kompletten Datenbank oder alle
   veröffentlichten Rechtstexte als Textdateien (ZIP, nach Sprache/Slug sortiert) herunter.
+- **Backup-Wiederherstellung**:
+  Spiele eine hochgeladene Sicherungskopie wieder ein, um die komplette Datenbank der Instanz zu
+  ersetzen — erleichtert den Wechsel zwischen Self-Hosting und Managed Cloud. Funktioniert auch
+  mit Backups aus älteren Paragrafy-Versionen. Siehe
+  [Backup-Wiederherstellung](/features/backup-restore/) für den vollständigen Ablauf.

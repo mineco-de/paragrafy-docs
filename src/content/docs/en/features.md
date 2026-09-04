@@ -98,3 +98,8 @@ Applies unchanged to both [Managed Cloud](/en/managed-cloud/overview/) and
 - **Backups & Exports**:
   Download a backup of the complete database, or all published legal texts as text files (ZIP,
   sorted by language/slug), from settings.
+- **Backup Restore**:
+  Restore an uploaded backup to replace the instance's entire database — makes
+  switching between self-hosting and Managed Cloud easier. Also works with backups from older
+  Paragrafy versions. See [Backup Restore](/en/features/backup-restore/) for the full
+  workflow.
