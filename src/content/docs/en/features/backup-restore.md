@@ -5,7 +5,13 @@ description: Upload and restore a backup file — useful when switching between 
 
 Besides creating and downloading backups, the project settings also let you **upload and restore**
 a `.sqlite` backup file. This makes switching between self-hosting and Managed Cloud easy in
-either direction: export on one platform, import on the other.
+either direction: export on one platform, import on the other — even if the source file contains
+just a single project.
+
+"Instance" here means one complete Paragrafy installation, i.e. one database — on self-hosting
+that's typically your one server, on Managed Cloud it's your single, isolated account (every
+customer has their own database there). An instance can itself contain several
+projects/domains (see [Compliance Matrix](/en/features/compliance-matrix/)).
 
 ## How it works
 
@@ -31,11 +37,18 @@ contains.
   tables are missing because the backup came from an older Paragrafy version, they're
   automatically added back with sensible defaults. So the backup does **not** need to come from
   the exact same version as the target instance.
+- If the restored database contains more projects than your current Managed Cloud plan allows,
+  a warning appears after the restore. The restore itself is not blocked by this — in that case,
+  check your Cloud dashboard to see whether a plan change is needed.
 
-:::caution[Full replacement]
+:::caution[Full replacement, not a merge]
 Restoring replaces **this instance's entire database** — every project, legal text, translation,
-user, and setting. On Managed Cloud this only affects your own instance, since every account has
-its own isolated database.
+user, and setting. If the target instance currently has several projects and the uploaded file
+only has one, the other projects are deleted in the process. On Managed Cloud this only affects
+your own isolated instance — not other customers'.
+
+On Managed Cloud, the domain stored in the file is also carried over. After restoring, check the
+Cloud dashboard to make sure the domain assignment still matches, and adjust it if needed.
 :::
 
 :::tip[Managed Cloud vs. Self-Hosting]

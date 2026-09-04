@@ -6,7 +6,12 @@ description: Eine hochgeladene Sicherungskopie einspielen — nützlich beim Wec
 Neben dem Erstellen und Herunterladen von Backups lässt sich in den Projekteinstellungen auch
 eine `.sqlite`-Sicherungskopie **hochladen und einspielen**. Das erleichtert den Wechsel zwischen
 Self-Hosting und Managed Cloud in beide Richtungen: Export bei der einen Plattform, Import bei
-der anderen.
+der anderen — auch wenn die Ausgangsdatei nur ein einzelnes Projekt enthält.
+
+Mit „Instanz" ist hier eine komplette Paragrafy-Installation gemeint, also eine Datenbank —
+beim Self-Hosting typischerweise dein einer Server, bei Managed Cloud dein einzelner,
+isolierter Account (jeder Kunde hat dort seine eigene Datenbank). Eine Instanz kann dabei
+selbst mehrere Projekte/Domains enthalten (siehe [Compliance-Matrix](/features/compliance-matrix/)).
 
 ## So funktioniert's
 
@@ -32,11 +37,18 @@ wiederhergestellten Datenbank enthalten sind.
   Fehlen Spalten oder Tabellen, weil das Backup aus einer älteren Paragrafy-Version stammt,
   werden sie automatisch mit sinnvollen Standardwerten ergänzt. Das Backup muss also **nicht**
   von der exakt gleichen Version stammen wie die Zielinstanz.
+- Enthält die wiederhergestellte Datenbank mehr Projekte, als dein aktueller Managed-Cloud-Plan
+  erlaubt, erscheint nach dem Restore ein Warnhinweis. Der Restore selbst wird dadurch nicht
+  blockiert — prüfe in diesem Fall im Cloud-Dashboard, ob ein Plan-Wechsel nötig ist.
 
-:::caution[Vollständiger Ersatz]
+:::caution[Vollständiger Ersatz, keine Zusammenführung]
 Der Restore ersetzt **die komplette Datenbank dieser Instanz** — alle Projekte, Rechtstexte,
-Übersetzungen, Nutzer und Einstellungen. Bei Managed Cloud betrifft das ausschließlich deine
-eigene Instanz, da jeder Account eine eigene, isolierte Datenbank hat.
+Übersetzungen, Nutzer und Einstellungen. Hat die Zielinstanz aktuell mehrere Projekte und die
+hochgeladene Datei nur eines, werden die übrigen Projekte dabei gelöscht. Bei Managed Cloud
+betrifft das ausschließlich deine eigene, isolierte Instanz — nicht die anderer Kunden.
+
+Auf Managed Cloud wird außerdem die in der Datei gespeicherte Domain mit übernommen. Prüfe nach
+dem Restore im Cloud-Dashboard, ob die Domain-Zuordnung noch stimmt, und passe sie bei Bedarf an.
 :::
 
 :::tip[Managed Cloud vs. Self-Hosting]
