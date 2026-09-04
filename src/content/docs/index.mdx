@@ -1,0 +1,46 @@
+---
+title: Paragrafy
+description: Zentrale Verwaltung von Rechtstexten für mehrere Web- und App-Projekte.
+template: splash
+hero:
+  tagline: Ein leichtgewichtiges Content-Management-System und Headless-Backend zur zentralen Verwaltung, Übersetzung und Bereitstellung rechtlicher Pflichttexte (Impressum, Datenschutz, AGB, Cookie-Richtlinien etc.) für mehrere Web- und App-Projekte.
+  actions:
+    - text: Was ist Managed Cloud?
+      link: /managed-cloud/overview/
+      icon: right-arrow
+      variant: primary
+    - text: Self-Hosting Guide
+      link: /self-hosting/overview/
+      icon: right-arrow
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+Paragrafy gibt es in zwei Varianten. Der Funktionsumfang (Compliance-Matrix, Übersetzungen,
+Scheduled Publishing, Webhooks, API, Embed-Script, Cookie-Banner) ist in beiden identisch — der
+Unterschied liegt nur darin, wer sich um Server, Updates, Backups und Cron-Jobs kümmert.
+
+<CardGrid>
+	<Card title="Managed Cloud" icon="rocket">
+		Du registrierst dich, zahlst per Stripe und bekommst sofort eine fertige Instanz unter deiner
+		Subdomain oder eigenen Domain. Hosting, SSL, Backups, Updates und Cron laufen automatisch —
+		du musst dich um nichts davon kümmern.
+
+		[Mehr erfahren →](/managed-cloud/overview/)
+	</Card>
+	<Card title="Self-Hosting" icon="setting">
+		Du betreibst Paragrafy selbst — per Apache oder Docker auf deinem eigenen Server. Volle
+		Kontrolle über Daten und Infrastruktur, dafür bist du für Updates, Backups und Cron-Jobs
+		selbst verantwortlich.
+
+		[Mehr erfahren →](/self-hosting/overview/)
+	</Card>
+</CardGrid>
+
+## Kernfunktionen im Überblick
+
+Multi-Tenant-Routing, Compliance-Matrix mit One-Click-Toggle, zeitgesteuerte Veröffentlichung,
+Webhooks mit Warteschlange & Retry, bidirektionale DeepL-Übersetzung, Versionshistorie mit Diff,
+Headless JSON-API, In-App Embed-Drawer und ein DSGVO-Cookie-Consent-Banner — die komplette Liste
+findest du auf der [Kernfunktionen-Seite](/features/).

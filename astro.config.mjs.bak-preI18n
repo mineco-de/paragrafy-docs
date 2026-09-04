@@ -1,0 +1,47 @@
+// @ts-check
+import { defineConfig } from 'astro/config';
+import starlight from '@astrojs/starlight';
+
+// https://astro.build/config
+export default defineConfig({
+	site: 'https://docs.paragrafy.cloud',
+	integrations: [
+		starlight({
+			title: 'Paragrafy Docs',
+			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/mineco-de/Paragrafy' }],
+			sidebar: [
+				{
+					label: 'Managed Cloud',
+					items: [
+						{ label: 'Was ist Managed Cloud?', slug: 'managed-cloud/overview' },
+					],
+				},
+				{
+					label: 'Self-Hosting',
+					items: [
+						{ label: 'Übersicht', slug: 'self-hosting/overview' },
+						{ label: 'Installation: Apache', slug: 'self-hosting/apache' },
+						{ label: 'Installation: Docker', slug: 'self-hosting/docker' },
+						{ label: 'Konfiguration & Umgebungsvariablen', slug: 'self-hosting/configuration' },
+						{ label: 'Cron-Jobs', slug: 'self-hosting/cron-jobs' },
+						{ label: 'Upgrade-Guide', slug: 'self-hosting/upgrading' },
+					],
+				},
+				{
+					label: 'Funktionen',
+					items: [
+						{ label: 'Kernfunktionen', slug: 'features' },
+					],
+				},
+				{
+					label: 'Integrationen',
+					items: [
+						{ label: 'Webhooks', slug: 'integrations/webhooks' },
+						{ label: 'JSON-API & Authentifizierung', slug: 'integrations/api' },
+						{ label: 'Embed-Drawer & Cookie-Banner', slug: 'integrations/embeds' },
+					],
+				},
+			],
+		}),
+	],
+});

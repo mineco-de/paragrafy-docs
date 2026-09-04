@@ -1,0 +1,45 @@
+---
+title: Paragrafy
+description: Central management of legal texts for multiple web and app projects.
+template: splash
+hero:
+  tagline: A lightweight content management system and headless backend for centrally managing, translating, and delivering mandatory legal texts (imprint, privacy policy, terms & conditions, cookie policy, etc.) across multiple web and app projects.
+  actions:
+    - text: What is Managed Cloud?
+      link: /en/managed-cloud/overview/
+      icon: right-arrow
+      variant: primary
+    - text: Self-Hosting Guide
+      link: /en/self-hosting/overview/
+      icon: right-arrow
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+Paragrafy comes in two flavors. The feature set (compliance matrix, translations, scheduled
+publishing, webhooks, API, embed script, cookie banner) is identical in both — the only
+difference is who takes care of the server, updates, backups, and cron jobs.
+
+<CardGrid>
+	<Card title="Managed Cloud" icon="rocket">
+		You sign up, pay via Stripe, and get a ready-to-use instance on your subdomain or your own
+		domain instantly. Hosting, SSL, backups, updates, and cron all run automatically — you don't
+		have to take care of any of it.
+
+		[Learn more →](/en/managed-cloud/overview/)
+	</Card>
+	<Card title="Self-Hosting" icon="setting">
+		You run Paragrafy yourself — via Apache or Docker on your own server. Full control over data
+		and infrastructure, but you're responsible for updates, backups, and cron jobs yourself.
+
+		[Learn more →](/en/self-hosting/overview/)
+	</Card>
+</CardGrid>
+
+## Core features at a glance
+
+Multi-tenant routing, compliance matrix with one-click toggle, scheduled publishing, webhooks
+with queue & retry, bidirectional DeepL translation, version history with diff, headless JSON
+API, in-app embed drawer, and a GDPR cookie consent banner — the full list is on the
+[core features page](/en/features/).
