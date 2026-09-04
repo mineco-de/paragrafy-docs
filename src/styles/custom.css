@@ -1,0 +1,88 @@
+/*
+ * Paragrafy-Doku im "Ink & Paper"-Look des Kundenportals (siehe Paragrafy-cloud/assets/pg-theme.css)
+ * statt Starlights Standard-Indigo/Lila. Ueberschreibt nur Starlights eigene CSS-Variablen +
+ * Button-/Aside-Komponenten - keine eigenen Icons, Starlights Icon-Set bleibt unangetastet.
+ */
+
+/* Amber-Akzent in BEIDEN Modi (--sl-hue-* bleibt fuer die Callout-Farben
+   orange/green/blue/purple/red unangetastet, nur der Marken-Akzent wird ersetzt) */
+:root {
+	--sl-color-accent-low: #4a2f10;
+	--sl-color-accent: #f0a63c;
+	--sl-color-accent-high: #f6c374;
+	--sl-color-text-accent: var(--sl-color-accent-high);
+}
+:root[data-theme='light'] {
+	--sl-color-accent-low: #fbe8c8;
+	--sl-color-accent: #c97f1f;
+	--sl-color-accent-high: #7a4c10;
+	--sl-color-text-accent: var(--sl-color-accent);
+}
+
+/* Hintergrund/Text auf die warmen Ink&Paper-Toene des Dashboards gezogen statt Starlights kuehlem
+   Blaugrau - NUR im Dark Mode (":not([data-theme='light'])" statt bare ":root", sonst ueberschreiben
+   diese Werte auch den Light Mode, der bei Starlight eigene :root[data-theme='light']-Werte per
+   CSS-Var-Indirektion braucht, die durch fest verdrahtete Werte hier sonst durchbrochen wird).
+   Helle Ansicht bleibt Starlights neutrale Grau/Weiss-Basis (das Dashboard hat keinen eigenen
+   Hell-Modus, an dem sich das ausrichten liesse). */
+:root:not([data-theme='light']) {
+	--sl-color-black: #0b0a08;
+	--sl-color-bg: #0b0a08;
+	--sl-color-bg-nav: #16130f;
+	--sl-color-bg-sidebar: #16130f;
+	--sl-color-bg-inline-code: #0e0c09;
+	--sl-color-bg-accent: var(--sl-color-accent);
+
+	--sl-color-white: #f5f1e8;
+	--sl-color-gray-1: #f5f1e8;
+	--sl-color-gray-2: #cdc7b8;
+	--sl-color-gray-3: #a29c8d;
+	--sl-color-gray-4: #746f63;
+	--sl-color-gray-5: #4a463c;
+	--sl-color-gray-6: #211e18;
+
+	--sl-color-hairline-light: rgba(245, 241, 232, 0.28);
+	--sl-color-hairline: rgba(245, 241, 232, 0.14);
+	--sl-color-hairline-shade: #000;
+
+	--sl-color-text-invert: #17130d;
+}
+
+/* Buttons: flacher "Stempel"-Ton statt Pill-Shape + Glow, identisch zum Dashboard (.pg-btn in
+   Paragrafy-cloud/assets/pg-theme.css) */
+.sl-link-button {
+	border-radius: 3px;
+	font-weight: 700;
+	transition: background-color 0.15s ease, transform 0.1s ease;
+}
+.sl-link-button.primary {
+	background: var(--sl-color-accent);
+	border-color: var(--sl-color-accent);
+	color: #17130d;
+}
+.sl-link-button.primary:hover {
+	background: var(--sl-color-accent-high);
+	border-color: var(--sl-color-accent-high);
+	color: #17130d;
+}
+.sl-link-button.secondary {
+	border-color: var(--sl-color-hairline-light);
+}
+.sl-link-button.secondary:hover {
+	border-color: var(--sl-color-accent);
+	color: var(--sl-color-accent-high);
+}
+.sl-link-button:active {
+	transform: scale(0.98);
+}
+
+/* Karten (<Card>-Komponente auf Feature-Uebersichtsseiten) etwas schaerferkantiger statt der
+   Starlight-Standard-Rundung, passend zum dokumentenartigen Kartenlook des Dashboards. Faerbt die
+   Karten NICHT alle amber um - die abwechselnde Rand-/Icon-Farbe (orange/purple/green/blue/red je
+   nach Position) bleibt bewusst als visuelle Unterscheidungshilfe zwischen den Karten erhalten. */
+.card {
+	border-radius: 3px;
+}
+.card .icon {
+	border-radius: 2px;
+}

@@ -8,6 +8,7 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: 'Paragrafy Docs',
+			customCss: ['./src/styles/custom.css'],
 			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/mineco-de/Paragrafy' }],
 			defaultLocale: 'root',
 			locales: {
