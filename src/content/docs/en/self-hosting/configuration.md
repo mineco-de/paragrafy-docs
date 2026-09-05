@@ -21,6 +21,33 @@ Only the following values actually come from files instead of the database:
 | `.env` / `.env.local` (optional) | `DEEPL_API_KEY=...` as a cross-project fallback if a project doesn't have its own DeepL key configured. Both files are optional — everything works without them except this fallback. |
 | `PARAGRAFY_DATA_DIR` (environment variable) | Only relevant for Docker: moves `config.php`, the SQLite database, `/backups`, and `.env.local` into a persistent directory. See [Installation: Docker](/en/self-hosting/docker/). |
 
+
+## Resetting the admin password
+
+The master admin login (the form without an email field) has **no** "forgot password" link — the
+existing email-based reset flow in the admin area only applies to invited users in the multi-user
+management, not to this login. If you lose the hash from `config.php`, you have to replace it
+manually:
+
+1. Generate a new bcrypt hash (on the server, requires the PHP CLI):
+
+   ```bash
+   php -r "echo password_hash('YourNewPassword123', PASSWORD_DEFAULT), PHP_EOL;"
+   ```
+
+2. In your instance's `config.php` (path per the table above, or `PARAGRAFY_DATA_DIR`), replace
+   the value of `admin_password_hash` with the new hash. The file is a plain PHP array
+   (`var_export` format) and can be edited with any text editor.
+
+3. Then sign in with the new password at the master admin login.
+
+:::caution
+Watch out for the `$` character in the hash when editing it manually — it's easily swallowed by
+the shell or by regex backreferences in commands like `sed`. The safest approach is a direct
+editor or a small script that reads the hash unchanged from a file instead of embedding it in a
+shell command.
+:::
+
 ## API Access & Authentication
 
 - **The public JSON API** (`/api/:lang/:slug`) is intentionally **unauthenticated and
