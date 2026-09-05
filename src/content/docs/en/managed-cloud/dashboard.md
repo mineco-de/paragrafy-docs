@@ -56,6 +56,19 @@ Under "Account" you change your display name, email address (confirmed via link)
 The "Activity" section shows a complete log of every change made to your account and your
 instances — including actions triggered by our support team.
 
+## Managing users
+
+The "Users" menu item lets you invite additional people who can log in to your projects (e.g. a
+data protection officer) — with a name, email address, and a free-text note as a reminder. For
+every invitation you pick, via checkbox, which of your projects the person should get access to;
+the assignment for an existing person can be changed anytime via "Change assignment".
+
+:::note
+The invited person logs in with the credentials set up here directly in the
+[legal text admin](/en/features/benutzerverwaltung/) of the respective projects — not in this
+cloud dashboard. There, they only see the projects assigned to them.
+:::
+
 ## Support
 
 "Support" reaches us directly from the dashboard, scoped to a project with a subject and message

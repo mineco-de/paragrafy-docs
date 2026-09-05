@@ -58,6 +58,20 @@ Unter „Konto" änderst du Anzeigename, E-Mail-Adresse (Bestätigung per Link) 
 Bereich „Aktivität" zeigt ein vollständiges Protokoll aller Änderungen an deinem Konto und deinen
 Instanzen — auch Aktionen, die über unseren Support ausgelöst wurden.
 
+## Benutzer verwalten
+
+Über den Menüpunkt „Benutzer" lädst du zusätzliche Personen ein, die sich in deine Projekte
+einloggen können (z. B. eine Datenschutzbeauftragte) — mit Name, E-Mail-Adresse und einer freien
+Notiz als Merkhilfe. Bei jeder Einladung wählst du per Checkbox aus, auf welche deiner Projekte die
+Person Zugriff erhalten soll; die Zuordnung lässt sich bei bestehenden Personen jederzeit über
+„Zuordnung ändern" anpassen.
+
+:::note
+Die eingeladene Person loggt sich mit den hier vergebenen Zugangsdaten direkt im
+[Rechtstexte-Admin](/features/benutzerverwaltung/) der jeweiligen Projekte ein — nicht in diesem
+Cloud-Dashboard. Sie sieht dort ausschließlich die ihr zugeordneten Projekte.
+:::
+
 ## Support
 
 Über „Support" erreichst du uns direkt aus dem Dashboard heraus, projektbezogen mit Betreff und
