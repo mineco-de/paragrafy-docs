@@ -30,13 +30,18 @@ automatically in the background.
 
 ## Plans
 
-- **Single:** One project per account.
-- **Agency:** Multiple projects in one account, central admin login, custom domain per project
-  possible.
+- **Solo:** One project per account.
+- **Flex:** Multiple projects in one account, tiered pricing from 2 projects.
+- **Enterprise:** Custom number of projects and terms, a personal point of contact instead of
+  form/email support — on request.
 
-Billing is monthly via Stripe. For a step-by-step walkthrough of creating instances, connecting
-domains, changing plans, or managing your subscription, see
-[Your Dashboard](/en/managed-cloud/dashboard/).
+Central admin login (single sign-on across all your own instances) and a custom domain per
+project are included in all cloud plans. Optionally available for Solo and Flex: a **setup
+service** — we import your existing legal texts and set up the pages for you.
+
+Billing is monthly via Stripe (Enterprise: invoice by arrangement). For a step-by-step
+walkthrough of creating instances, connecting domains, changing plans, or managing your
+subscription, see [Your Dashboard](/en/managed-cloud/dashboard/).
 
 ## What stays the same
 

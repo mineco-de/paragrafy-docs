@@ -44,10 +44,11 @@ nicht mehr.
 
 ## Plan wechseln
 
-Unter „Abo" siehst du Single- und Agency-Plan nebeneinander mit Preis und Funktionsumfang
-(Agency: mehrere Instanzen, zentraler Admin-Login, eigene Domain je Projekt). Der Wechsel
-passiert per Klick mit Bestätigung, die Verrechnung erfolgt anteilig über Stripe. Ein Downgrade
-auf Single ist erst möglich, wenn nur noch eine Instanz existiert.
+Unter „Abo" siehst du Solo- und Flex-Plan nebeneinander mit Preis und Funktionsumfang
+(Flex: mehrere Instanzen, ab 2 Projekten gestaffelter Preis). Der Wechsel passiert per Klick mit
+Bestätigung, die Verrechnung erfolgt anteilig über Stripe. Ein Downgrade auf Solo ist erst
+möglich, wenn nur noch eine Instanz existiert. Enterprise-Konditionen werden individuell
+vereinbart — wende dich dafür an den Support.
 
 ## Abo, Rechnungen & Kündigung
 

@@ -43,10 +43,10 @@ really mean it — external links to your previous domain will stop working afte
 
 ## Changing your plan
 
-Under "Subscription" you see the Single and Agency plans side by side with price and feature
-scope (Agency: multiple instances, central admin login, a custom domain per project). Switching
-happens with one click plus confirmation, billed pro-rata via Stripe. Downgrading to Single is
-only possible once just one instance remains.
+Under "Subscription" you see the Solo and Flex plans side by side with price and feature scope
+(Flex: multiple instances, tiered pricing from 2 projects). Switching happens with one click plus
+confirmation, billed pro-rata via Stripe. Downgrading to Solo is only possible once just one
+instance remains. Enterprise terms are arranged individually — contact support for that.
 
 ## Subscription, invoices & cancellation
 

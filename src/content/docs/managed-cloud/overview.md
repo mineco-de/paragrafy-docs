@@ -31,13 +31,19 @@ Registrieren, bezahlen, loslegen. Hosting, SSL-Zertifikate, Backups, Updates und
 
 ## Pläne
 
-- **Single:** Ein Projekt pro Account.
-- **Agency:** Mehrere Projekte in einem Account, zentraler Admin-Login, eigene Domain je Projekt
-  möglich.
+- **Solo:** Ein Projekt pro Account.
+- **Flex:** Mehrere Projekte in einem Account, ab 2 Projekten gestaffelter Preis.
+- **Enterprise:** Individuelle Projektanzahl und Konditionen, persönlicher Ansprechpartner statt
+  Support per Formular/E-Mail — auf Anfrage.
 
-Abrechnung erfolgt monatlich über Stripe. Wie du Instanzen anlegst, Domains verbindest, den Plan
-wechselst oder dein Abo verwaltest, steht Schritt für Schritt unter
-[Dein Dashboard](/managed-cloud/dashboard/).
+Zentraler Admin-Login (Single-Sign-On über alle eigenen Instanzen) und eigene Domain je Projekt
+sind in allen Cloud-Plänen enthalten. Optional buchbar bei Solo und Flex: ein
+**Einrichtungsservice** — wir importieren deine bestehenden Rechtstexte und legen die Seiten für
+dich an.
+
+Abrechnung erfolgt monatlich über Stripe (bei Enterprise: Rechnung nach Absprache). Wie du
+Instanzen anlegst, Domains verbindest, den Plan wechselst oder dein Abo verwaltest, steht Schritt
+für Schritt unter [Dein Dashboard](/managed-cloud/dashboard/).
 
 ## Was gleich bleibt
 
