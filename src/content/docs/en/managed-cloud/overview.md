@@ -4,7 +4,7 @@ description: Fully hosted Paragrafy operation without your own server.
 ---
 
 Paragrafy Cloud is the hosted variant of Paragrafy that we operate for you. You get a
-fully set up instance and don't need to worry about anything described in the
+fully set up project and don't need to worry about anything described in the
 [self-hosting chapters](/en/self-hosting/overview/).
 
 :::tip[In short]
@@ -14,9 +14,9 @@ automatically in the background.
 
 ## What runs automatically for you
 
-- **Provisioning:** After payment (Stripe checkout), your instance is created automatically —
+- **Provisioning:** After payment (Stripe checkout), your project is created automatically —
   including database and initial configuration. No manual setup required.
-- **Hosting & Domains:** Your instance runs on a subdomain (`yourproject.paragrafy.cloud`) or
+- **Hosting & Domains:** Your project runs on a subdomain (`yourproject.paragrafy.cloud`) or
   your own domain. With a custom domain, we handle DNS verification, VirtualHost setup, and SSL
   certificates fully automatically — without any server access on your side.
 - **Backups:** Rolling automatic backups of your legal texts and configuration, no need to set up
@@ -25,7 +25,7 @@ automatically in the background.
   manually or run migration scripts.
 - **Cron Jobs:** The four automation endpoints (scheduled publishing, webhook delivery, backup,
   audit email — see [Cron Jobs](/en/self-hosting/cron-jobs/)) are already set up.
-- **SSO Login:** From your Cloud dashboard, you land directly in your instance's Paragrafy admin
+- **SSO Login:** From your Cloud dashboard, you land directly in your project's Paragrafy admin
   via single sign-on, without logging in again.
 
 ## Plans
@@ -35,12 +35,12 @@ automatically in the background.
 - **Enterprise:** Custom number of projects and terms, a personal point of contact instead of
   form/email support — on request.
 
-Central admin login (single sign-on across all your own instances) and a custom domain per
+Central admin login (single sign-on across all your own projects) and a custom domain per
 project are included in all cloud plans. Optionally available for Solo and Flex: a **setup
 service** — we import your existing legal texts and set up the pages for you.
 
 Billing is monthly via Stripe (Enterprise: invoice by arrangement). For a step-by-step
-walkthrough of creating instances, connecting domains, changing plans, or managing your
+walkthrough of creating projects, connecting domains, changing plans, or managing your
 subscription, see [Your Dashboard](/en/managed-cloud/dashboard/).
 
 ## What stays the same
