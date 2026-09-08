@@ -13,6 +13,14 @@ beim Self-Hosting typischerweise dein einer Server, bei Managed Cloud dein einze
 isolierter Account (jeder Kunde hat dort seine eigene Datenbank). Eine Instanz kann dabei
 selbst mehrere Projekte/Domains enthalten (siehe [Compliance-Matrix](/features/compliance-matrix/)).
 
+:::note[Nur für den primären Admin-Login]
+Das Herunterladen und Wiederherstellen des **Voll-Instanz-Backups** (diese komplette Datenbank,
+alle Projekte) ist ausschließlich dem primären Admin-Login vorbehalten — eine eingeladene Person
+mit eingeschränktem Projektzugriff sieht diese Aktion gar nicht bzw. bekommt sie serverseitig
+verweigert. Der [Projekt-Export](/features/project-transfer/) (nur ein einzelnes Projekt) bleibt
+für jede Person mit Zugriff auf das jeweilige Projekt nutzbar.
+:::
+
 ## So funktioniert's
 
 1. Gehe zu **Einstellungen → Sicherung & Export**.

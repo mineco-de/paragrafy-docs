@@ -34,4 +34,16 @@ sudo find /var/www/paragrafy -type f -exec chmod 644 {} +
 </VirtualHost>
 ```
 
+Die mitgelieferte `.htaccess` blockiert direkten HTTP-Zugriff auf `*.sqlite*`, `config.php` und
+`.env*` als zusätzliches Sicherheitsnetz — vorausgesetzt `AllowOverride All` ist wie oben gesetzt,
+damit Apache die Datei überhaupt auswertet.
+
+:::caution[Mehrere Domains an einer Instanz]
+Läuft eine Paragrafy-Instanz für mehrere Kunden-Domains (`ServerAlias`/mehrere VirtualHosts, die
+alle auf denselben `DocumentRoot` zeigen), löst die App das passende Projekt über den
+`Host`-Header auf. Achte darauf, dass **keine** Catch-All-/Default-VirtualHost-Konfiguration
+unbekannte Domains ebenfalls an diese Instanz durchreicht — sonst könnte eine Anfrage mit
+gefälschtem `Host`-Header direkt an die Server-IP ein fremdes Projekt adressieren.
+:::
+
 Danach geht es weiter mit der [Erstinstallation & Cron-Jobs](/self-hosting/cron-jobs/).

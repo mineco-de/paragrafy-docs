@@ -7,7 +7,8 @@ description: Weitere Personen per E-Mail einladen und Projektzugriff per Checkbo
 
 Im Admin-Bereich lassen sich unter "Benutzer" beliebig viele Personen per E-Mail einladen. Jede
 eingeladene Person erhält einen Aktivierungslink, über den sie ihr eigenes Passwort festlegt —
-Zugangsdaten werden nie manuell weitergegeben.
+Zugangsdaten werden nie manuell weitergegeben. Der Link ist 7 Tage gültig; "Einladung erneut
+senden" erzeugt bei Bedarf einen neuen.
 
 Die Nutzerverwaltung (Einladen, Zuordnung ändern, Entfernen) ist ausschließlich dem primären
 Admin-Login vorbehalten. Eine eingeladene Person sieht den Menüpunkt "Benutzer" gar nicht erst und
@@ -32,12 +33,14 @@ Eine als freies Feld gepflegte Notiz (z. B. "Datenschutzbeauftragter") wird nebe
 E-Mail-Adresse angezeigt — rein informativ, ohne Auswirkung auf die Rechte.
 
 Ein "Passwort vergessen"-Link auf der Login-Seite ermöglicht es jeder Person, ihr Passwort
-selbstständig zurückzusetzen, ohne dass ein Admin eingreifen muss.
+selbstständig zurückzusetzen, ohne dass ein Admin eingreifen muss. Dieser Link ist aus
+Sicherheitsgründen nur 1 Stunde gültig; danach muss ein neuer angefordert werden.
 
 ## Login-Schutz
 
-Fehlgeschlagene Anmeldeversuche werden pro IP-Adresse gedrosselt (5 Versuche innerhalb von 15
-Minuten), um automatisierte Brute-Force-Angriffe auf den Admin-Login zu erschweren.
+Fehlgeschlagene Anmeldeversuche werden gedrosselt (5 Versuche innerhalb von 15 Minuten) — sowohl
+pro IP-Adresse als auch pro Benutzerkonto, um sowohl klassisches Brute-Forcing als auch verteilte
+Angriffe auf ein einzelnes Konto (viele IPs, ein Konto) zu erschweren.
 
 :::tip[Managed Cloud vs. Self-Hosting]
 Bei Managed-Cloud-Konten werden Personen nicht mehr hier im Admin eingeladen, sondern zentral über

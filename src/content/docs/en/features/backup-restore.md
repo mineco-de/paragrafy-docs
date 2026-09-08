@@ -13,6 +13,14 @@ that's typically your one server, on Managed Cloud it's your single, isolated ac
 customer has their own database there). An instance can itself contain several
 projects/domains (see [Compliance Matrix](/en/features/compliance-matrix/)).
 
+:::note[Primary admin login only]
+Downloading and restoring the **full-instance backup** (this entire database, all projects) is
+reserved exclusively for the primary admin login — an invited person with restricted project
+access won't see this action, or has it denied server-side. The
+[project export](/en/features/project-transfer/) (a single project only) remains available to
+anyone with access to that project.
+:::
+
 ## How it works
 
 1. Go to **Settings → Backup & Export**.

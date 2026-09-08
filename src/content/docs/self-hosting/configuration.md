@@ -51,7 +51,9 @@ ihn in ein Shell-Kommando einzubetten.
 
 - **Öffentliche JSON-API** (`/api/:lang/:slug`) ist bewusst **unauthentifiziert und rein
   lesend** — Rechtstexte sollen von jeder verbundenen Website ohne Zugangsdaten abrufbar sein. Es
-  gibt keine Möglichkeit, Inhalte über diese API zu schreiben oder zu ändern.
+  gibt keine Möglichkeit, Inhalte über diese API zu schreiben oder zu ändern. Gegen Scraping/
+  Flooding ist sie pro IP rate-limitiert (120 Anfragen / 5 Minuten); bei Überschreitung antwortet
+  sie mit HTTP 429.
 - **Bearbeiten von Rechtstexten** ist ausschließlich über die eingeloggte `/admin`-Session
   möglich (Passwort- bzw. Multi-User-Login) — es existiert keine separate API mit Bearer-Token
   oder API-Keys für schreibende Zugriffe.

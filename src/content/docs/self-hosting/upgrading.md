@@ -26,5 +26,18 @@ Update laufen:
    `/api/cron/...`-Endpunkts automatisch eines generiert (sichtbar unter Einstellungen →
    Automatisierung).
 
-Es gab bislang keine Breaking Changes, die manuelles Eingreifen über die automatische Migration
-hinaus erfordern.
+## Breaking Changes
+
+### 2026.9.11 — Docker-Datenverzeichnis verschoben (Security-Fix)
+
+Der Container-Pfad für `PARAGRAFY_DATA_DIR` wurde von `/var/www/html/data` (innerhalb des
+Apache-Docroots) nach `/var/www/data` (außerhalb) verschoben, damit Datenbank, `config.php` und
+`.env.local` niemals über HTTP erreichbar sein können. Der Host-seitige Ordner `./data` ist davon
+**nicht betroffen** — ein normales `git pull` gefolgt von `docker compose up -d --build` genügt,
+es ist keine manuelle Datenmigration nötig. Details siehe
+[Installation: Docker](/self-hosting/docker/#persistenz).
+
+Für Apache-/Bare-Metal-Installationen ändert sich nichts.
+
+Darüber hinaus gab es bislang keine Breaking Changes, die manuelles Eingreifen über die
+automatische Migration hinaus erfordern.

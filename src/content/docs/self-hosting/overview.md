@@ -41,7 +41,7 @@ Zwei Betriebsarten stehen zur Wahl:
 ```
 
 Bei Docker liegen `config.php`, `.env.local`, `backups/` und `paragrafy_data.sqlite` stattdessen
-unter `PARAGRAFY_DATA_DIR` (`/var/www/html/data`, auf `./data` gemountet).
+unter `PARAGRAFY_DATA_DIR` (`/var/www/data`, außerhalb des Docroots, auf `./data` gemountet).
 
 ## Nächste Schritte
 

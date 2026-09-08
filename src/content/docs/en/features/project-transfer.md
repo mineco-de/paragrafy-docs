@@ -39,7 +39,11 @@ explicitly choose**, and leaves every other project on the target instance untou
 :::note[What gets transferred]
 Only legal content: document types, documents, translations, and their version history.
 Operational data such as webhook logs, consent records, the audit trail, and user accounts are
-**not** transferred — that's source-instance data, not portable content.
+**not** transferred — that's source-instance data, not portable content. Project-level secrets
+(SMTP password, webhook secret, DeepL/AI API key) are excluded too — the export file carries
+empty values there so it can be shared (e.g. by email or cloud storage) without exposing
+credentials. Re-enter these fields under Settings on the target project after importing, if
+needed.
 :::
 
 :::tip[Managed Cloud vs. Self-Hosting]

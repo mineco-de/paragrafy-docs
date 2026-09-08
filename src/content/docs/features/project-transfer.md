@@ -41,7 +41,11 @@ der Zielinstanz unberührt.
 :::note[Was übertragen wird]
 Nur Rechtsinhalte: Rechtstext-Typen, Dokumente, Übersetzungen und deren Versionshistorie.
 Betriebsdaten wie Webhook-Logs, Consent-Nachweise, der Audit-Trail und Nutzerkonten werden
-**nicht** mit übertragen — das sind Daten der Quellinstanz, keine portablen Inhalte.
+**nicht** mit übertragen — das sind Daten der Quellinstanz, keine portablen Inhalte. Ebenfalls
+nicht enthalten sind projektbezogene Geheimnisse (SMTP-Passwort, Webhook-Secret, DeepL-/KI-API-Key)
+— die Export-Datei enthält an diesen Stellen leere Werte, damit sie z. B. per Mail oder
+Cloud-Speicher geteilt werden kann, ohne Zugangsdaten preiszugeben. Nach einem Import müssen diese
+Felder im Zielprojekt unter Einstellungen bei Bedarf neu gesetzt werden.
 :::
 
 :::tip[Managed Cloud vs. Self-Hosting]

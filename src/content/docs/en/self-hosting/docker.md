@@ -34,12 +34,20 @@ Docker and Docker Compose are the fastest and cleanest way to run Paragrafy.
 
 ## Persistence
 
-`docker-compose.yaml` mounts `./data` to `/var/www/html/data` and sets
-`PARAGRAFY_DATA_DIR=/var/www/html/data` — that's where `paragrafy_data.sqlite`, `config.php`,
-`/backups`, and an optional `.env.local` live. Without this volume, the database and admin
-credentials are lost on every `--build`. The container automatically sets the correct file
+`docker-compose.yaml` mounts `./data` to `/var/www/data` and sets
+`PARAGRAFY_DATA_DIR=/var/www/data` — that's where `paragrafy_data.sqlite`, `config.php`,
+`/backups`, and an optional `.env.local` live. The path is deliberately **outside** the Apache
+docroot `/var/www/html`, so these files are never reachable over HTTP even if a front-facing
+webserver config doesn't additionally lock them down. Without this volume, the database and
+admin credentials are lost on every `--build`. The container automatically sets the correct file
 permissions on this folder at startup (via `docker-entrypoint.sh`), even if the host directory
 didn't exist beforehand.
+
+:::note[Upgrading from an install before 2026-09-08]
+Earlier versions used `/var/www/html/data` (inside the docroot) as the container path. The
+host-side `./data` folder is unchanged — a plain `git pull` followed by
+`docker compose up -d --build` is enough, no manual data migration needed.
+:::
 
 For a bare-metal/Apache setup (see [Installation: Apache](/en/self-hosting/apache/)),
 `PARAGRAFY_DATA_DIR` isn't needed — the database and config then live directly in the project

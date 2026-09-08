@@ -7,7 +7,7 @@ description: Invite additional people by email and restrict project access with 
 
 In the admin area, under "Users" you can invite any number of people by email. Each invited
 person receives an activation link where they set their own password — credentials are never
-shared manually.
+shared manually. The link is valid for 7 days; "Resend invite" issues a fresh one if needed.
 
 User management (inviting, changing project assignment, removing) is reserved exclusively for the
 primary admin login. An invited person doesn't even see the "Users" menu item and cannot invite
@@ -31,12 +31,14 @@ A free-text note (e.g. "Data protection officer") is shown next to the name and 
 purely informational, with no effect on permissions.
 
 A "Forgot password" link on the login page lets anyone reset their own password without an admin
-having to step in.
+having to step in. For security, this link is only valid for 1 hour; after that a new one must be
+requested.
 
 ## Login protection
 
-Failed sign-in attempts are throttled per IP address (5 attempts within 15 minutes) to make
-automated brute-force attacks against the admin login harder.
+Failed sign-in attempts are throttled (5 attempts within 15 minutes) — both per IP address and per
+user account, to make both classic brute-forcing and distributed attacks against a single account
+(many IPs, one account) harder.
 
 :::tip[Managed Cloud vs. Self-Hosting]
 On Managed Cloud accounts, people are no longer invited here in the admin — instead, use "Manage

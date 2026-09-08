@@ -42,7 +42,7 @@ Two deployment options are available:
 ```
 
 With Docker, `config.php`, `.env.local`, `backups/`, and `paragrafy_data.sqlite` instead live
-under `PARAGRAFY_DATA_DIR` (`/var/www/html/data`, mounted to `./data`).
+under `PARAGRAFY_DATA_DIR` (`/var/www/data`, outside the docroot, mounted to `./data`).
 
 ## Next Steps
 

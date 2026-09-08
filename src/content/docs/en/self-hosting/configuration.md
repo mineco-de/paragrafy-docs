@@ -52,7 +52,8 @@ shell command.
 
 - **The public JSON API** (`/api/:lang/:slug`) is intentionally **unauthenticated and
   read-only** — legal texts should be retrievable from any connected website without credentials.
-  There is no way to write or change content through this API.
+  There is no way to write or change content through this API. It's rate-limited per IP (120
+  requests / 5 minutes) against scraping/flooding; it responds with HTTP 429 once exceeded.
 - **Editing legal texts** is only possible via the logged-in `/admin` session (password or
   multi-user login) — there is no separate API with bearer tokens or API keys for write access.
 - **Cron endpoints** (`/api/cron/...`) require a `?secret=` query parameter (or an active admin

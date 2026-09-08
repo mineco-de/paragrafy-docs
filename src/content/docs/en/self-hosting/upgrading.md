@@ -25,5 +25,17 @@ the update:
 4. Existing installations without a `cron_secret` in `config.php` get one generated automatically
    on the first request to an `/api/cron/...` endpoint (visible under Settings → Automation).
 
-There have been no breaking changes so far requiring manual intervention beyond the automatic
-migration.
+## Breaking Changes
+
+### 2026.9.11 — Docker data directory moved (security fix)
+
+The container path for `PARAGRAFY_DATA_DIR` moved from `/var/www/html/data` (inside the Apache
+docroot) to `/var/www/data` (outside it), so the database, `config.php`, and `.env.local` can
+never be reachable over HTTP. The host-side `./data` folder is **not affected** — a plain
+`git pull` followed by `docker compose up -d --build` is enough, no manual data migration needed.
+See [Installation: Docker](/en/self-hosting/docker/#persistence) for details.
+
+Nothing changes for Apache/bare-metal installs.
+
+Beyond that, there have been no breaking changes so far requiring manual intervention beyond the
+automatic migration.
