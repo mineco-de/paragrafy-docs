@@ -30,6 +30,12 @@ hinterlegen. Das Dashboard zeigt dir den benötigten A-Record auf unsere Server-
 SSL-Prüfung laufen danach automatisch im Hintergrund (Status-Badge aktualisiert sich alle paar
 Minuten), ein „Jetzt erneut prüfen"-Button stößt die Prüfung bei Bedarf sofort an.
 
+:::tip[Ausfallsicherheit deiner Rechtstexte]
+Deine Domain hängt an deiner eigenen DNS-Konfiguration. Nutzt du Cloudflare, aktiviere Proxy
+(orange Wolke) und "Always Online", damit z. B. Impressum und Datenschutz auch bei einem
+kurzzeitigen Ausfall unseres Servers erreichbar bleiben.
+:::
+
 :::caution[Domain entfernen]
 Über „Domain entfernen" koppelst du die Instanz zurück auf die System-Subdomain. Bestätige das
 nur, wenn du das wirklich willst — externe Links auf deine bisherige Domain funktionieren danach

@@ -30,6 +30,12 @@ The dashboard shows you the required A record pointing to our server IP; DNS and
 run automatically in the background (the status badge updates every few minutes), and a "Check
 again now" button triggers the check immediately if needed.
 
+:::tip[Keeping your legal pages available]
+Your domain depends on your own DNS setup. If you use Cloudflare, enable the proxy (orange
+cloud) and "Always Online" so pages like your imprint and privacy policy stay reachable even
+during a brief outage on our end.
+:::
+
 :::caution[Removing a domain]
 "Remove domain" switches the instance back to the system subdomain. Only confirm this if you
 really mean it — external links to your previous domain will stop working afterward.
