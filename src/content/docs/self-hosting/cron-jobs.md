@@ -19,8 +19,8 @@ Cron-Secret an.
 
 ## Cron-Jobs einrichten (empfohlen)
 
-Vier Endpunkte sollten von außen regelmäßig aufgerufen werden, damit geplante Veröffentlichungen
-live gehen, Backups entstehen und Webhooks zugestellt werden. Alle vier sind mit einem geheimen
+Diese Endpunkte sollten von außen regelmäßig aufgerufen werden, damit geplante Veröffentlichungen
+live gehen, Backups entstehen und Webhooks zugestellt werden. Alle sind mit einem geheimen
 Schlüssel geschützt (Query-Parameter `?secret=...`), den du fertig zusammengesetzt in
 **Einstellungen → Automatisierung (Cron)** findest — dort lässt er sich bei Bedarf auch neu
 generieren.
@@ -37,6 +37,9 @@ generieren.
 
 # Prüfbericht per E-Mail, falls Rechtstexte überfällig sind (täglich)
 0 8 * * * curl -fsS "https://legal.deinedomain.de/api/cron/audit?secret=DEIN_CRON_SECRET" > /dev/null
+
+# Optional: alte Einträge des öffentlichen File-Caches aufräumen (rotiert sonst auch von selbst)
+0 4 * * * curl -fsS "https://legal.deinedomain.de/api/cron/cache-cleanup?secret=DEIN_CRON_SECRET" > /dev/null
 ```
 
 Alternativ eignet sich auch ein externer Uptime-Monitor (z. B. Uptime Kuma, healthchecks.io) als

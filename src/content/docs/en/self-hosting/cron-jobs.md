@@ -18,8 +18,8 @@ wizard** starts automatically and creates the database, admin password, and a ra
 
 ## Setting Up Cron Jobs (recommended)
 
-Four endpoints should be called regularly from the outside so scheduled publications go live,
-backups are created, and webhooks get delivered. All four are protected by a secret key (query
+These endpoints should be called regularly from the outside so scheduled publications go live,
+backups are created, and webhooks get delivered. All are protected by a secret key (query
 parameter `?secret=...`), which you'll find pre-assembled under **Settings → Automation (Cron)**
 — you can regenerate it there if needed.
 
@@ -35,6 +35,9 @@ parameter `?secret=...`), which you'll find pre-assembled under **Settings → A
 
 # Email report if legal texts are overdue for review (daily)
 0 8 * * * curl -fsS "https://legal.yourdomain.com/api/cron/audit?secret=YOUR_CRON_SECRET" > /dev/null
+
+# Optional: clean up old public file-cache entries (the cache also rotates itself opportunistically)
+0 4 * * * curl -fsS "https://legal.yourdomain.com/api/cron/cache-cleanup?secret=YOUR_CRON_SECRET" > /dev/null
 ```
 
 Alternatively, an external uptime monitor (e.g. Uptime Kuma, healthchecks.io) can serve as a

@@ -74,6 +74,15 @@ Gilt unverändert für [Managed Cloud](/managed-cloud/overview/) und
   Stellt Endpunkte unter `/api/:lang/:slug` bereit und liefert ein modales Sheet-Script
   (`/embed.js`) für das direkte Einbinden in Web-Apps. Siehe
   [JSON-API](/integrations/api/) und [Embed-Drawer](/integrations/embeds/).
+- **HTTP-Caching für öffentliche Rechtstexte**:
+  Der Public Viewer und die JSON-API senden `ETag`, `Last-Modified` und
+  `Cache-Control: public, max-age=300, must-revalidate` und beantworten unveränderte Requests mit
+  `304 Not Modified`, ohne die Datenbank für den vollen Inhalt zu belasten — wichtig bei
+  Traffic-Spitzen auf verlinkten Kunden-Websites. Ein optionaler, mandantenisolierter File-Cache
+  überspringt zusätzlich das Rendering für unveränderte Dokumente; eine neue Version erzeugt
+  automatisch einen neuen Cache-Eintrag. Vorschauen (`/preview`) sind davon immer ausgenommen
+  (`private, no-store`). Siehe [JSON-API](/integrations/api/) und
+  [Cron-Jobs](/self-hosting/cron-jobs/) für den optionalen Cache-Cleanup.
 
 ## Öffentlicher Auftritt & Datenschutz
 

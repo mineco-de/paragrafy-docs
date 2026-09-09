@@ -22,3 +22,23 @@ GET https://legal.deinedomain.de/api/agb-b2c
 ```
 
 Für automatisierte Benachrichtigungen bei Änderungen siehe [Webhooks](/integrations/webhooks/).
+
+## HTTP-Caching
+
+Sowohl diese JSON-API als auch der öffentliche HTML-Viewer senden `ETag`, `Last-Modified` und
+`Cache-Control: public, max-age=300, must-revalidate`. Ein anfragender Client, der `If-None-Match`
+(oder `If-Modified-Since`) mitschickt, bekommt bei unverändertem Dokument `304 Not Modified` ohne
+Response-Body zurück:
+
+```bash
+# Erster Request: 200 mit ETag/Last-Modified
+curl -I https://legal.deinedomain.de/api/de/datenschutz
+
+# Zweiter Request mit dem ETag aus der ersten Antwort: 304, kein Body
+curl -I -H 'If-None-Match: "<etag-aus-erster-antwort>"' https://legal.deinedomain.de/api/de/datenschutz
+```
+
+Ändert sich das Dokument (neuer Inhalt, neue Version, oder projektbezogene Stammdaten wie
+Firmenname/Adresse), liefert dieselbe URL automatisch wieder `200` mit neuem `ETag`. Eine
+Vorschau-URL (`/preview`) ist davon ausgenommen und liefert immer `Cache-Control: private,
+no-store` — sie wird nie gecacht.

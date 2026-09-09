@@ -20,6 +20,7 @@ Only the following values actually come from files instead of the database:
 | `config.php` (auto-generated) | Admin password hash (legacy login) and the cron secret. Created by the setup wizard, do not edit manually. Optional: `project_limit` (int) caps the number of `projects` rows for this instance — if the key is absent (default), there's no limit. Intended for operators running Paragrafy behind their own SaaS/billing layer with one instance per account/plan. |
 | `.env` / `.env.local` (optional) | `DEEPL_API_KEY=...` as a cross-project fallback if a project doesn't have its own DeepL key configured. Both files are optional — everything works without them except this fallback. |
 | `PARAGRAFY_DATA_DIR` (environment variable) | Only relevant for Docker: moves `config.php`, the SQLite database, `/backups`, and `.env.local` into a persistent directory. See [Installation: Docker](/en/self-hosting/docker/). |
+| `PARAGRAFY_PUBLIC_CACHE` (environment variable, optional) | Set to `0` to disable the optional public legal-text file cache under `PARAGRAFY_DATA_DIR/cache/public/` (defaults to `1`/on). HTTP validation caching (`ETag`/`Last-Modified`/`304`) is unaffected and always active. |
 
 
 ## Resetting the admin password
