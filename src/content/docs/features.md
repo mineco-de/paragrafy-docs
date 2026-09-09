@@ -83,6 +83,14 @@ Gilt unverändert für [Managed Cloud](/managed-cloud/overview/) und
   automatisch einen neuen Cache-Eintrag. Vorschauen (`/preview`) sind davon immer ausgenommen
   (`private, no-store`). Siehe [JSON-API](/integrations/api/) und
   [Cron-Jobs](/self-hosting/cron-jobs/) für den optionalen Cache-Cleanup.
+- **Mehrsprachige Fallbacks**:
+  Fehlt für ein Dokument die angefragte Sprache (z. B. `/fr/impressum`, aber nur `DE`/`EN`
+  gepflegt), liefert Paragrafy statt eines 404 automatisch eine sinnvolle Alternative:
+  angefragte Sprache → Englisch → Projekt-Standardsprache → die einzige vorhandene Sprache.
+  Gilt für Public Viewer, JSON-API und Übersichtsseite. Der Viewer zeigt dabei einen
+  Hinweis-Banner, die Übersicht markiert betroffene Einträge mit einem kleinen
+  Sprach-Badge, und die JSON-API liefert zusätzlich `fallback: true` und `requested_lang`.
+  Vorschauen bleiben davon ausgenommen. Siehe [JSON-API](/integrations/api/).
 
 ## Öffentlicher Auftritt & Datenschutz
 

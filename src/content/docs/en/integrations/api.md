@@ -24,9 +24,11 @@ For automated change notifications, see [Webhooks](/en/integrations/webhooks/).
 ## HTTP Caching
 
 Both this JSON API and the public HTML viewer send `ETag`, `Last-Modified`, and
-`Cache-Control: public, max-age=300, must-revalidate`. A requesting client that sends
-`If-None-Match` (or `If-Modified-Since`) gets `304 Not Modified` with no response body back when
-the document hasn't changed:
+`Cache-Control: public, max-age=300, must-revalidate`. A requesting client that sends a matching
+`If-None-Match` gets `304 Not Modified` with no response body back. (`Last-Modified` is sent for
+informational purposes but isn't accepted as a validator on its own — only `If-None-Match`/`ETag`
+can produce a `304`, since a language fallback response's freshness isn't reliably expressed by a
+date alone.)
 
 ```bash
 # First request: 200 with ETag/Last-Modified
@@ -40,3 +42,19 @@ If the document changes (new content, a new version, or project-level details li
 or address), the same URL automatically returns `200` again with a new `ETag`. A preview URL
 (`/preview`) is excluded from this and always returns `Cache-Control: private, no-store` — it is
 never cached.
+
+## Multilingual Fallbacks
+
+If a document isn't translated into the requested language yet, the API automatically serves an
+available alternative instead of a `404` (requested language → English → the project's primary
+language → whichever single language exists). In that case, the response adds two extra fields,
+and `lang` reflects the language actually served:
+
+```json
+{
+  "lang": "en",
+  "fallback": true,
+  "requested_lang": "fr",
+  "...": "..."
+}
+```

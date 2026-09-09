@@ -81,6 +81,14 @@ Applies unchanged to both [Managed Cloud](/en/managed-cloud/overview/) and
   Previews (`/preview`) are always excluded (`private, no-store`). See
   [JSON API](/en/integrations/api/) and [Cron Jobs](/en/self-hosting/cron-jobs/) for the optional
   cache cleanup.
+- **Multilingual fallbacks**:
+  If a document is missing the requested language (e.g. `/fr/impressum` with only `DE`/`EN`
+  maintained), Paragrafy automatically serves a sensible alternative instead of a 404:
+  requested language → English → the project's primary language → whichever single language
+  exists. Applies to the public viewer, JSON API, and overview page. The viewer shows a notice
+  banner, the overview marks affected entries with a small language badge, and the JSON API adds
+  `fallback: true` and `requested_lang`. Previews are excluded. See
+  [JSON API](/en/integrations/api/).
 
 ## Public Presentation & Privacy
 

@@ -27,8 +27,10 @@ Für automatisierte Benachrichtigungen bei Änderungen siehe [Webhooks](/integra
 
 Sowohl diese JSON-API als auch der öffentliche HTML-Viewer senden `ETag`, `Last-Modified` und
 `Cache-Control: public, max-age=300, must-revalidate`. Ein anfragender Client, der `If-None-Match`
-(oder `If-Modified-Since`) mitschickt, bekommt bei unverändertem Dokument `304 Not Modified` ohne
-Response-Body zurück:
+mitschickt, bekommt bei unverändertem Dokument `304 Not Modified` ohne Response-Body zurück.
+(`Last-Modified` wird nur informativ gesendet, zählt aber allein nicht als Validator — nur
+`If-None-Match`/`ETag` können ein `304` auslösen, da sich die Aktualität einer
+Sprach-Fallback-Antwort nicht zuverlässig allein über ein Datum abbilden lässt.)
 
 ```bash
 # Erster Request: 200 mit ETag/Last-Modified
@@ -42,3 +44,19 @@ curl -I -H 'If-None-Match: "<etag-aus-erster-antwort>"' https://legal.deinedomai
 Firmenname/Adresse), liefert dieselbe URL automatisch wieder `200` mit neuem `ETag`. Eine
 Vorschau-URL (`/preview`) ist davon ausgenommen und liefert immer `Cache-Control: private,
 no-store` — sie wird nie gecacht.
+
+## Mehrsprachige Fallbacks
+
+Ist ein Dokument noch nicht in der angefragten Sprache übersetzt, liefert die API statt eines
+`404` automatisch eine verfügbare Alternative (angefragte Sprache → Englisch →
+Projekt-Standardsprache → die einzige vorhandene Sprache). In diesem Fall ergänzt die Antwort
+zwei zusätzliche Felder, und `lang` spiegelt die tatsächlich ausgelieferte Sprache wider:
+
+```json
+{
+  "lang": "en",
+  "fallback": true,
+  "requested_lang": "fr",
+  "...": "..."
+}
+```
