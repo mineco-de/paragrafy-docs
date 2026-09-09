@@ -76,7 +76,10 @@ Person Zugriff erhalten soll; die Zuordnung lässt sich bei bestehenden Personen
 :::note
 Die eingeladene Person loggt sich mit den hier vergebenen Zugangsdaten direkt im
 [Rechtstexte-Admin](/features/benutzerverwaltung/) der jeweiligen Projekte ein — nicht in diesem
-Cloud-Dashboard. Sie sieht dort ausschließlich die ihr zugeordneten Projekte.
+Cloud-Dashboard. Sie sieht dort ausschließlich die ihr zugeordneten Projekte. Dort kann sie sich in
+ihren eigenen Einstellungen auch optional per [Zwei-Faktor-Authentifizierung
+(TOTP)](/features/zwei-faktor-authentifizierung/) zusätzlich absichern — unabhängig vom
+SSO-Login des Cloud-Dashboards selbst.
 :::
 
 ## Support

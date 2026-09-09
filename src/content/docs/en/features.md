@@ -92,6 +92,11 @@ Applies unchanged to both [Managed Cloud](/en/managed-cloud/overview/) and
 - **Login Protection**:
   Failed login attempts are throttled per IP address (5 attempts / 15 minutes) to make brute-force
   attacks harder.
+- **Two-Factor Authentication (TOTP)**:
+  Any user account can optionally enable 2FA via an authenticator app, including recovery codes
+  and an admin-side reset if a device is lost. See
+  [Two-Factor Authentication](/en/features/two-factor-authentication/) for the full workflow
+  (also covers the admin account on self-hosted instances).
 - **Automatic Rolling Backups (7 days)**:
   A cron endpoint backs up the database daily and automatically deletes older snapshots. The
   latest backups can be downloaded individually from settings.

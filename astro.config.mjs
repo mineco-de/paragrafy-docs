@@ -50,6 +50,7 @@ export default defineConfig({
 						{ label: 'Compliance-Matrix & Mehrsprachigkeit', slug: 'features/compliance-matrix', translations: { en: 'Compliance Matrix & Multi-Language' } },
 						{ label: 'Versionshistorie & Änderungsprotokoll', slug: 'features/versionshistorie', translations: { en: 'Version History & Change Log' } },
 						{ label: 'Benutzerverwaltung', slug: 'features/benutzerverwaltung', translations: { en: 'User Management' } },
+						{ label: 'Zwei-Faktor-Authentifizierung (TOTP)', slug: 'features/zwei-faktor-authentifizierung', translations: { en: 'Two-Factor Authentication (TOTP)' } },
 						{ label: 'Einlesemodus für Rechtstexte', slug: 'features/einlesemodus', translations: { en: 'Legal Text Import Mode' } },
 						{ label: 'Backup-Wiederherstellung', slug: 'features/backup-restore', translations: { en: 'Backup Restore' } },
 						{ label: 'Projekt-Export & -Import', slug: 'features/project-transfer', translations: { en: 'Project Export & Import' } },

@@ -5,7 +5,11 @@ description: Welche Einstellungen wo gepflegt werden.
 
 :::tip[Managed Cloud]
 Auf [Managed Cloud](/managed-cloud/overview/) sind Cron-Secret und Admin-Zugangsdaten bereits
-automatisch angelegt — diese Datei musst du nie manuell bearbeiten.
+automatisch angelegt — diese Datei musst du nie manuell bearbeiten. Zwei Felder darin (`sso_secret`
+für den SSO-Login aus dem Cloud-Dashboard, `admin_password_login_disabled` zur Sperre des
+klassischen Admin-Passwort-Formulars) werden ausschließlich dort von unserer Plattform gesetzt —
+für eine reine Self-Hosting-Installation ohne eigene SaaS-Schicht sind beide irrelevant und bleiben
+unbesetzt.
 :::
 
 Die meisten Einstellungen (SMTP-Zugangsdaten, Webhook-URL/-Secret, DeepL-API-Key, Firmendaten,
@@ -17,7 +21,7 @@ Nur folgende Werte kommen tatsächlich aus Dateien statt aus der Datenbank:
 
 | Datei / Variable | Zweck |
 | :--- | :--- |
-| `config.php` (auto-generiert) | Admin-Passwort-Hash (Legacy-Login) und das Cron-Secret. Wird beim Setup-Wizard angelegt, nicht manuell bearbeiten. Optional: `project_limit` (int) begrenzt die Anzahl `projects`-Zeilen dieser Instanz — fehlt der Schlüssel (Standard), gilt kein Limit. Gedacht für Betreiber, die Paragrafy hinter einer eigenen SaaS-/Abrechnungsschicht mit einer Instanz pro Account/Plan betreiben. |
+| `config.php` (auto-generiert) | Admin-Passwort-Hash (Legacy-Login) und das Cron-Secret. Wird beim Setup-Wizard angelegt, nicht manuell bearbeiten. Optional: `project_limit` (int) begrenzt die Anzahl `projects`-Zeilen dieser Instanz — fehlt der Schlüssel (Standard), gilt kein Limit. Gedacht für Betreiber, die Paragrafy hinter einer eigenen SaaS-/Abrechnungsschicht mit einer Instanz pro Account/Plan betreiben. Legt außerdem selbstheilend einen `totp_encryption_key` an (beim ersten TOTP-Setup, analog zum Cron-Secret) — verschlüsselt TOTP-Secrets im Ruhezustand, niemals manuell setzen oder teilen. Bei Self-Hosting (kein SSO eingerichtet) liegen hier zusätzlich die optionalen `admin_totp_*`-Felder, falls 2FA für das Admin-Konto aktiv ist — siehe [Zwei-Faktor-Authentifizierung](/features/zwei-faktor-authentifizierung/). |
 | `.env` / `.env.local` (optional) | `DEEPL_API_KEY=...` als projektübergreifender Fallback, falls im jeweiligen Projekt kein eigener DeepL-Key hinterlegt ist. Beide Dateien sind optional — ohne sie funktioniert alles außer diesem Fallback. |
 | `PARAGRAFY_DATA_DIR` (Umgebungsvariable) | Nur für Docker relevant: verlegt `config.php`, die SQLite-Datenbank, `/backups` und `.env.local` in ein persistentes Verzeichnis. Siehe [Installation: Docker](/self-hosting/docker/). |
 
@@ -47,7 +51,22 @@ direkter Editor oder ein kleines Skript, das den Hash unverändert aus einer Dat
 ihn in ein Shell-Kommando einzubetten.
 :::
 
-## API-Zugriff & Authentifizierung
+## Admin-TOTP zurücksetzen
+
+Hat der self-hosted Admin-Login TOTP aktiviert (siehe
+[Zwei-Faktor-Authentifizierung](/features/zwei-faktor-authentifizierung/#admin-konto-nur-self-hosted))
+und verliert dabei sowohl das Gerät als auch alle Recovery-Codes, gibt es bewusst **keinen**
+Web-UI-Reset — niemand steht über dem einen Admin-Konto. Der Notfallweg erfordert Server-Zugriff:
+
+```bash
+php bin/totp-reset-admin.php
+```
+
+Das Skript deaktiviert TOTP für das Admin-Konto (Passwort-Login funktioniert danach sofort wieder
+ohne zweiten Faktor) und schreibt einen Eintrag ins Änderungsprotokoll. Auf Managed-Cloud-Instanzen
+bricht es mit einer entsprechenden Meldung ab, da dort ohnehin kein Admin-TOTP existiert.
+
+## Admin-Passwort zurücksetzen
 
 - **Öffentliche JSON-API** (`/api/:lang/:slug`) ist bewusst **unauthentifiziert und rein
   lesend** — Rechtstexte sollen von jeder verbundenen Website ohne Zugangsdaten abrufbar sein. Es

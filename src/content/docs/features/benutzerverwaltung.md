@@ -42,6 +42,14 @@ Fehlgeschlagene Anmeldeversuche werden gedrosselt (5 Versuche innerhalb von 15 M
 pro IP-Adresse als auch pro Benutzerkonto, um sowohl klassisches Brute-Forcing als auch verteilte
 Angriffe auf ein einzelnes Konto (viele IPs, ein Konto) zu erschweren.
 
+## Zwei-Faktor-Authentifizierung
+
+Jede eingeladene Person kann in ihren eigenen Einstellungen zusätzlich TOTP (Authenticator-App)
+aktivieren — komplett freiwillig, keine Instanz-weite Pflicht. Verliert jemand Gerät und
+Recovery-Codes gleichzeitig, kann der primäre Admin-Login das TOTP dieses Kontos zurücksetzen.
+Vollständiger Ablauf inkl. Recovery-Codes: siehe
+[Zwei-Faktor-Authentifizierung (TOTP)](/features/zwei-faktor-authentifizierung/).
+
 :::tip[Managed Cloud vs. Self-Hosting]
 Bei Managed-Cloud-Konten werden Personen nicht mehr hier im Admin eingeladen, sondern zentral über
 "Benutzer verwalten" im [Cloud-Dashboard](/managed-cloud/dashboard/#benutzer-verwalten) — dort

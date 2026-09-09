@@ -94,6 +94,11 @@ Gilt unverändert für [Managed Cloud](/managed-cloud/overview/) und
 - **Login-Schutz**:
   Fehlgeschlagene Anmeldeversuche werden pro IP-Adresse gedrosselt (5 Versuche / 15 Minuten), um
   Brute-Force-Angriffe zu erschweren.
+- **Zwei-Faktor-Authentifizierung (TOTP)**:
+  Jedes Benutzerkonto kann optional 2FA per Authenticator-App aktivieren, inklusive
+  Recovery-Codes und Admin-seitigem Reset bei Geräteverlust. Siehe
+  [Zwei-Faktor-Authentifizierung](/features/zwei-faktor-authentifizierung/) für den vollständigen
+  Ablauf (auch für das Admin-Konto bei Self-Hosting).
 - **Automatische rollierende Backups (7 Tage)**:
   Ein Cron-Endpunkt sichert die Datenbank täglich und löscht ältere Stände automatisch. Die
   letzten Backups lassen sich einzeln in den Einstellungen herunterladen.

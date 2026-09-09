@@ -27,6 +27,12 @@ Zwei Betriebsarten stehen zur Wahl:
 ├── editor.php            # Sprachen-Tabs-Editor mit Scheduled Publishing & Versionshistorie
 ├── install.php           # Interaktiver Setup-Wizard für die Erstinstallation
 ├── db.php                # SQLite-Datenbankanbindung, Migrationen, Webhooks, SMTP-Client & Theme
+├── totp.php              # Zwei-Faktor-Authentifizierung: Krypto, Einrichtung, Verifikation, Config-Lock
+├── bin/
+│   ├── totp-reset-admin.php   # Notfall-Reset des Admin-TOTP, nur per Server-Zugriff
+│   └── check-translations.php # CI-Hilfsskript für lang/*.php
+├── composer.json / composer.lock # Abhängigkeiten für 2FA (spomky-labs/otphp, endroid/qr-code)
+├── vendor/               # Composer-Abhängigkeiten (nicht im Git — `composer install` ausführen)
 ├── Dockerfile            # Container-Image-Definition
 ├── docker-compose.yaml   # Docker-Compose-Setup für den Betrieb via Container
 ├── docker-entrypoint.sh  # Setzt beim Container-Start Dateirechte auf das Daten-Volume
@@ -34,7 +40,7 @@ Zwei Betriebsarten stehen zur Wahl:
 ├── paragrafy.svg         # Vektor-Logo
 ├── .htaccess             # Apache Routing & Schutz sensibler Dateien
 ├── .gitignore            # Git-Ausschlussregeln
-├── config.php            # Admin-Passwort-Hash & Cron-Secret (wird bei Setup generiert)
+├── config.php            # Admin-Passwort-Hash, Cron-Secret & TOTP-Encryption-Key (wird bei Setup generiert)
 ├── .env.local            # Optional: DEEPL_API_KEY als Fallback
 ├── backups/              # Rollierende 7-Tage-Backups (automatisch angelegt)
 └── paragrafy_data.sqlite # SQLite-Datenbank (wird automatisch angelegt)

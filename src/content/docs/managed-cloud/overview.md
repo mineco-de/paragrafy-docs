@@ -27,7 +27,10 @@ Registrieren, bezahlen, loslegen. Hosting, SSL-Zertifikate, Backups, Updates und
 - **Cron-Jobs:** Die vier Automatisierungs-Endpunkte (Scheduled Publishing, Webhook-Zustellung,
   Backup, Audit-Mail — siehe [Cron-Jobs](/self-hosting/cron-jobs/)) sind bereits eingerichtet.
 - **SSO-Login:** Aus deinem Cloud-Dashboard gelangst du per Single-Sign-On direkt und ohne
-  erneuten Login in den Paragrafy-Admin deines Projekts.
+  erneuten Login in den Paragrafy-Admin deines Projekts — das ist auf Managed Cloud der
+  **einzige** Weg zum Admin-Konto, das klassische Passwort-Formular ist dort gesperrt. Für
+  Kolleg:innen, die im Alltag einen eigenen, TOTP-geschützten Login möchten, legst du stattdessen
+  ein reguläres [Benutzerkonto](/features/benutzerverwaltung/) an.
 
 ## Pläne
 
