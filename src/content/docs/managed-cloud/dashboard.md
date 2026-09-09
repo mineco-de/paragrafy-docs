@@ -65,6 +65,22 @@ Unter „Konto" änderst du Anzeigename, E-Mail-Adresse (Bestätigung per Link) 
 Bereich „Aktivität" zeigt ein vollständiges Protokoll aller Änderungen an deinem Konto und deinen
 Projekten — auch Aktionen, die über unseren Support ausgelöst wurden.
 
+### Zwei-Faktor-Authentifizierung (2FA)
+
+Unter „Konto" kannst du optional eine Zwei-Faktor-Authentifizierung per TOTP (z. B. Google
+Authenticator, Aegis, 1Password) aktivieren. Beim Einrichten zeigt dir das Dashboard einen
+QR-Code zum Scannen sowie 10 einmalig nutzbare Recovery-Codes — sichere diese sofort an einem
+sicheren Ort, sie werden danach nicht erneut angezeigt und sind dein einziger Weg zurück ins
+Konto, falls du die Authenticator-App verlierst. Neue Recovery-Codes lassen sich jederzeit
+generieren (macht die vorherigen ungültig), Deaktivieren verlangt dein aktuelles Passwort zur
+Bestätigung.
+
+:::note
+2FA schützt ausschließlich den Login in dieses Cloud-Dashboard — nicht den separaten
+[Rechtstexte-Admin-Login](/features/benutzerverwaltung/) einzelner Projekte, das ist ein eigenes
+Zugangssystem mit eigenen Zugangsdaten.
+:::
+
 ## Benutzer verwalten
 
 Über den Menüpunkt „Benutzer" lädst du zusätzliche Personen ein, die sich in deine Projekte

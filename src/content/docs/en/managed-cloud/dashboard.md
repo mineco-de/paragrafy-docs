@@ -62,6 +62,20 @@ Under "Account" you change your display name, email address (confirmed via link)
 The "Activity" section shows a complete log of every change made to your account and your
 projects — including actions triggered by our support team.
 
+### Two-factor authentication (2FA)
+
+Under "Account" you can optionally enable two-factor authentication via TOTP (e.g. Google
+Authenticator, Aegis, 1Password). Setup shows a QR code to scan plus 10 single-use recovery
+codes — save these somewhere safe right away, they're shown only once and are your only way back
+into the account if you lose the authenticator app. New recovery codes can be generated anytime
+(invalidating the previous ones); disabling requires your current password to confirm.
+
+:::note
+2FA protects only the login to this cloud dashboard — not the separate
+[legal-text admin login](/en/features/benutzerverwaltung/) of individual projects, which is its
+own, separate credential system.
+:::
+
 ## Managing users
 
 The "Users" menu item lets you invite additional people who can log in to your projects (e.g. a
