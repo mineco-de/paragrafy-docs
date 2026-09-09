@@ -63,4 +63,8 @@ Cloud dashboard to make sure the domain assignment still matches, and adjust it 
 Identical on both platforms. This exact mechanism is what makes switching platforms easy:
 download a backup on your current platform (see [Settings](/en/features/) → Backup & Export) and
 upload it again on the new instance.
+
+Managed Cloud additionally offers **Time Machine** in the cloud dashboard: the same restore, but
+with one click on an automatically created daily state instead of a file upload — see
+[Your Dashboard](/en/managed-cloud/dashboard/#time-machine-restoring-your-instance).
 :::

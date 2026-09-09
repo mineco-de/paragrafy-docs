@@ -81,6 +81,31 @@ Bestätigung.
 Zugangssystem mit eigenen Zugangsdaten.
 :::
 
+## Time Machine: Instanz zurücksetzen
+
+Unter „Konto" → „Time Machine" kannst du deine komplette Instanz (alle Projekte deines Accounts)
+per Klick auf einen früheren, automatisch täglich angelegten Backup-Stand zurücksetzen — ohne
+manuell eine Datei herunter- und wieder hochzuladen wie beim [Backup-Wiederherstellen im
+Rechtstexte-Admin](/features/backup-restore/).
+
+Wähle dazu einen der aufgelisteten Tages-Stände aus, bestätige die Warnung und weise dich
+abschließend aus: per TOTP-Code, falls du [Zwei-Faktor-Authentifizierung](#zwei-faktor-authentifizierung-2fa)
+aktiviert hast, sonst mit deinem aktuellen Passwort.
+
+:::tip[Zurück in die Zukunft]
+Vor jedem Restore wird automatisch eine Sicherheitskopie deines aktuellen Standes angelegt — sie
+erscheint danach ganz oben in derselben Liste. Hast du dich vertan, wählst du sie einfach genauso
+wieder aus, um zum Stand von direkt vor dem Restore zurückzukehren.
+:::
+
+:::note[Nur Managed Cloud]
+Time Machine ist eine Funktion des Cloud-Dashboards und dort nicht von der Rechtstexte-Verwaltung
+selbst abhängig. Beim Self-Hosting steht dir derselbe zugrunde liegende Mechanismus (tägliches
+rollierendes Backup, siehe [Cronjobs](/self-hosting/cron-jobs/)) zur Verfügung, aber ohne diese
+Ein-Klick-Oberfläche — dort spielst du ein Backup wie gewohnt über [„Backup
+wiederherstellen"](/features/backup-restore/) im Rechtstexte-Admin ein.
+:::
+
 ## Benutzer verwalten
 
 Über den Menüpunkt „Benutzer" lädst du zusätzliche Personen ein, die sich in deine Projekte

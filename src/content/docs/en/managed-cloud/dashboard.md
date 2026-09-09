@@ -76,6 +76,31 @@ into the account if you lose the authenticator app. New recovery codes can be ge
 own, separate credential system.
 :::
 
+## Time Machine: restoring your instance
+
+Under "Account" → "Time Machine" you can restore your entire instance (all projects in your
+account) to an earlier, automatically created daily backup with one click — without manually
+downloading and re-uploading a file like the [restore feature in the legal text
+admin](/en/features/backup-restore/).
+
+Pick one of the listed daily states, confirm the warning, and verify yourself: with a TOTP code
+if you have [two-factor authentication](#two-factor-authentication-2fa) enabled, otherwise with
+your current password.
+
+:::tip[Back to the future]
+Before every restore, a safety copy of your current state is created automatically — it appears
+at the top of the same list afterward. If you change your mind, just pick that one to go back to
+the state right before the restore.
+:::
+
+:::note[Managed Cloud only]
+Time Machine is a feature of the cloud dashboard and isn't tied to the legal text management
+itself. On self-hosting, the same underlying mechanism is available (a daily rolling backup, see
+[cron jobs](/en/self-hosting/cron-jobs/)), but without this one-click interface — there you
+restore a backup as usual via ["restore backup"](/en/features/backup-restore/) in the legal text
+admin.
+:::
+
 ## Managing users
 
 The "Users" menu item lets you invite additional people who can log in to your projects (e.g. a

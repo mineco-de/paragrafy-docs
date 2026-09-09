@@ -63,4 +63,8 @@ dem Restore im Cloud-Dashboard, ob die Domain-Zuordnung noch stimmt, und passe s
 Identisch auf beiden Plattformen. Genau dieser Mechanismus macht den Wechsel zwischen den
 Plattformen einfach: Backup bei der aktuellen Plattform herunterladen (siehe
 [Einstellungen](/features/) → Sicherung & Export) und bei der neuen Instanz wieder hochladen.
+
+Bei Managed Cloud gibt es zusätzlich **Time Machine** im Cloud-Dashboard: dieselbe Wiederherstellung,
+aber per Klick auf einen automatisch angelegten Tages-Stand statt Datei-Upload — siehe
+[Dein Dashboard](/managed-cloud/dashboard/#time-machine-instanz-zurücksetzen).
 :::
