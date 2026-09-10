@@ -36,6 +36,15 @@ Deine Domain hängt an deiner eigenen DNS-Konfiguration. Nutzt du Cloudflare, ak
 kurzzeitigen Ausfall unseres Servers erreichbar bleiben.
 :::
 
+:::caution[Cache-Regeln und Admin-Login]
+Richtest du für deine eigene Domain zusätzlich eigene Cache-Regeln ein (z. B. Cloudflare Cache
+Rules mit fester Edge-TTL), schließe `/admin/*` davon aus. Andernfalls kann eine gecachte
+Admin-Seite das CSRF-Token eines anderen Besuchers enthalten, und das Speichern von Einstellungen
+schlägt mit einem Zugriffsfehler fehl. Die öffentlichen Rechtstexte-Seiten (Impressum,
+Datenschutz etc.) sind von dieser Einschränkung nicht betroffen und können bedenkenlos gecacht
+werden.
+:::
+
 :::caution[Domain entfernen]
 Über „Domain entfernen" koppelst du das Projekt zurück auf die System-Subdomain. Bestätige das
 nur, wenn du das wirklich willst — externe Links auf deine bisherige Domain funktionieren danach

@@ -36,6 +36,13 @@ cloud) and "Always Online" so pages like your imprint and privacy policy stay re
 during a brief outage on our end.
 :::
 
+:::caution[Cache rules and admin login]
+If you set up your own cache rules for your domain (e.g. Cloudflare Cache Rules with a fixed
+edge TTL), exclude `/admin/*` from them. Otherwise a cached admin page can contain another
+visitor's CSRF token, and saving settings will fail with an access error. Your public legal
+pages (imprint, privacy policy, etc.) aren't affected by this and can be cached safely.
+:::
+
 :::caution[Removing a domain]
 "Remove domain" switches the project back to the system subdomain. Only confirm this if you
 really mean it — external links to your previous domain will stop working afterward.

@@ -46,4 +46,12 @@ unbekannte Domains ebenfalls an diese Instanz durchreicht — sonst könnte eine
 gefälschtem `Host`-Header direkt an die Server-IP ein fremdes Projekt adressieren.
 :::
 
+:::caution[Cache/CDN vor der Instanz]
+Setzt du einen Reverse Proxy oder CDN (z. B. Cloudflare) mit eigenen Cache-Regeln vor deine
+Instanz, schließe `/admin/*` von jeglichem Caching aus. Eine gecachte Admin-Seite kann sonst das
+CSRF-Token eines anderen Besuchers enthalten, wodurch das Speichern von Einstellungen mit einem
+Zugriffsfehler fehlschlägt. Die öffentlichen Rechtstexte-Seiten sind davon nicht betroffen und
+lassen sich bedenkenlos cachen.
+:::
+
 Danach geht es weiter mit der [Erstinstallation & Cron-Jobs](/self-hosting/cron-jobs/).

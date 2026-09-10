@@ -46,4 +46,11 @@ instance — otherwise a request with a spoofed `Host` header sent straight to t
 could address a project it shouldn't.
 :::
 
+:::caution[Cache/CDN in front of your instance]
+If you put a reverse proxy or CDN (e.g. Cloudflare) with its own cache rules in front of your
+instance, exclude `/admin/*` from any caching. Otherwise a cached admin page can contain another
+visitor's CSRF token, causing settings saves to fail with an access error. Your public legal
+pages aren't affected by this and can be cached safely.
+:::
+
 Next, continue with [Initial Setup & Cron Jobs](/en/self-hosting/cron-jobs/).
