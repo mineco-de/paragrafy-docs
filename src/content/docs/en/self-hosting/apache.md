@@ -8,13 +8,22 @@ On [Managed Cloud](/en/managed-cloud/overview/), we handle server setup and Virt
 automatically — this step is skipped entirely.
 :::
 
-## 1. Upload Files & Set Permissions
+## 1. Upload Files, Install Dependencies & Set Permissions
 
 ```bash
+composer install --no-dev --optimize-autoloader
+
 sudo chown -R www-data:www-data /var/www/paragrafy
 sudo find /var/www/paragrafy -type d -exec chmod 755 {} +
 sudo find /var/www/paragrafy -type f -exec chmod 644 {} +
 ```
+
+`composer install` pulls in the two-factor authentication libraries (`spomky-labs/otphp`,
+`endroid/qr-code`) into `vendor/` (not committed to the repo). Requires the PHP `sodium` and `gd`
+extensions — both are bundled with a stock PHP 8.2 install; `gd` may need
+`apt install php8.2-gd` on some distros. Without `vendor/` present, everything else keeps
+working — only the TOTP setup screen under **Admin → Security** shows a "not installed" hint
+instead of the QR code.
 
 ## 2. Apache VirtualHost Configuration
 

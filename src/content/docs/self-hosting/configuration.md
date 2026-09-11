@@ -67,7 +67,7 @@ Das Skript deaktiviert TOTP für das Admin-Konto (Passwort-Login funktioniert da
 ohne zweiten Faktor) und schreibt einen Eintrag ins Änderungsprotokoll. Auf Managed-Cloud-Instanzen
 bricht es mit einer entsprechenden Meldung ab, da dort ohnehin kein Admin-TOTP existiert.
 
-## Admin-Passwort zurücksetzen
+## API-Zugriff & Authentifizierung
 
 - **Öffentliche JSON-API** (`/api/:lang/:slug`) ist bewusst **unauthentifiziert und rein
   lesend** — Rechtstexte sollen von jeder verbundenen Website ohne Zugangsdaten abrufbar sein. Es

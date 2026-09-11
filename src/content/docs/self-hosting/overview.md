@@ -33,6 +33,7 @@ Zwei Betriebsarten stehen zur Wahl:
 │   └── check-translations.php # CI-Hilfsskript für lang/*.php
 ├── composer.json / composer.lock # Abhängigkeiten für 2FA (spomky-labs/otphp, endroid/qr-code)
 ├── vendor/               # Composer-Abhängigkeiten (nicht im Git — `composer install` ausführen)
+├── assets/fonts/         # Selbst gehostete Webfonts (Fraunces, Inter, JetBrains Mono) für Admin/Editor
 ├── Dockerfile            # Container-Image-Definition
 ├── docker-compose.yaml   # Docker-Compose-Setup für den Betrieb via Container
 ├── docker-entrypoint.sh  # Setzt beim Container-Start Dateirechte auf das Daten-Volume

@@ -14,16 +14,23 @@ the update:
 1. **Before updating:** create a backup (Settings → Backup & Export, or back up `/backups` for
    Docker).
 2. **Apache:** copy the new files over the old ones, or `git pull` — just **don't** overwrite or
-   delete `config.php`, `paragrafy_data.sqlite`, and `/backups`.
+   delete `config.php`, `paragrafy_data.sqlite`, and `/backups`. Then run
+   `composer install --no-dev --optimize-autoloader` (see [Apache setup](/en/self-hosting/apache/)
+   above) — needed since the 2FA release to pull in the TOTP libraries; harmless to re-run on
+   every update either way.
    **Docker:** first `git pull` in the local checkout, then `docker compose up -d --build` — the
    image is built from the local code, so a plain `--build` without a preceding `git pull` still
    uses the old state. `config.php`, `paragrafy_data.sqlite`, `/backups`, and `.env.local` are
-   preserved automatically via the `data` volume.
+   preserved automatically via the `data` volume; `composer install` runs automatically as part of
+   the image build, nothing to do manually.
 3. On the next request to any page, `ensure_schema_migrations()` automatically creates missing
-   tables and columns (e.g. `users`, `audit_log`, `translation_versions`, `webhook_queue`, new
-   columns in `projects`) — no manual migration script needed.
+   tables and columns (e.g. `users`, `audit_log`, `translation_versions`, `webhook_queue`,
+   `sso_nonces`, TOTP columns on `users`, new columns on `projects`) — no manual migration script
+   needed.
 4. Existing installations without a `cron_secret` in `config.php` get one generated automatically
-   on the first request to an `/api/cron/...` endpoint (visible under Settings → Automation).
+   on the first request to an `/api/cron/...` endpoint (visible under Settings → Automation). The
+   same self-healing pattern applies to `totp_encryption_key`, generated the first time anyone
+   sets up TOTP.
 
 ## Breaking Changes
 

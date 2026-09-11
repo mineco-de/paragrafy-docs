@@ -28,6 +28,13 @@ Two deployment options are available:
 ├── editor.php            # Language-tabs editor with scheduled publishing & version history
 ├── install.php           # Interactive setup wizard for initial installation
 ├── db.php                # SQLite database layer, migrations, webhooks, SMTP client & theme
+├── totp.php              # Two-factor auth: crypto, enrollment, verification, config locking
+├── bin/
+│   ├── totp-reset-admin.php   # Server-access-only emergency reset for a locked-out self-hosted admin
+│   └── check-translations.php # CI helper: keeps lang/*.php key sets in sync
+├── composer.json / composer.lock # TOTP dependencies (spomky-labs/otphp, endroid/qr-code)
+├── vendor/                # Composer dependencies (not committed — run `composer install`)
+├── assets/fonts/          # Self-hosted webfonts (Fraunces, Inter, JetBrains Mono) for admin/editor
 ├── Dockerfile             # Container image definition
 ├── docker-compose.yaml    # Docker Compose setup for container-based operation
 ├── docker-entrypoint.sh   # Sets file permissions on the data volume at container start
@@ -35,7 +42,7 @@ Two deployment options are available:
 ├── paragrafy.svg          # Vector logo
 ├── .htaccess              # Apache routing & protection of sensitive files
 ├── .gitignore             # Git exclusion rules
-├── config.php             # Admin password hash & cron secret (generated at setup)
+├── config.php             # Admin password hash, cron secret & TOTP encryption key (generated at setup)
 ├── .env.local             # Optional: DEEPL_API_KEY as fallback
 ├── backups/               # Rolling 7-day backups (created automatically)
 └── paragrafy_data.sqlite  # SQLite database (created automatically)

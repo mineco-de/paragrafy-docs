@@ -17,7 +17,7 @@ Only the following values actually come from files instead of the database:
 
 | File / Variable | Purpose |
 | :--- | :--- |
-| `config.php` (auto-generated) | Admin password hash (legacy login) and the cron secret. Created by the setup wizard, do not edit manually. Optional: `project_limit` (int) caps the number of `projects` rows for this instance — if the key is absent (default), there's no limit. Intended for operators running Paragrafy behind their own SaaS/billing layer with one instance per account/plan. |
+| `config.php` (auto-generated) | Admin password hash (legacy login) and the cron secret. Created by the setup wizard, do not edit manually. Optional: `project_limit` (int) caps the number of `projects` rows for this instance — if the key is absent (default), there's no limit. Intended for operators running Paragrafy behind their own SaaS/billing layer with one instance per account/plan. Also self-heals a `totp_encryption_key` (random, generated on first TOTP setup, same pattern as the cron secret) used to encrypt TOTP secrets at rest — never edit or share this value, it's not a secret you're meant to configure. On self-hosted instances (no `sso_secret`), also holds the admin account's own optional `admin_totp_*` fields if two-factor authentication is enabled for it. |
 | `.env` / `.env.local` (optional) | `DEEPL_API_KEY=...` as a cross-project fallback if a project doesn't have its own DeepL key configured. Both files are optional — everything works without them except this fallback. |
 | `PARAGRAFY_DATA_DIR` (environment variable) | Only relevant for Docker: moves `config.php`, the SQLite database, `/backups`, and `.env.local` into a persistent directory. See [Installation: Docker](/en/self-hosting/docker/). |
 | `PARAGRAFY_PUBLIC_CACHE` (environment variable, optional) | Set to `0` to disable the optional public legal-text file cache under `PARAGRAFY_DATA_DIR/cache/public/` (defaults to `1`/on). HTTP validation caching (`ETag`/`Last-Modified`/`304`) is unaffected and always active. |
@@ -48,6 +48,20 @@ the shell or by regex backreferences in commands like `sed`. The safest approach
 editor or a small script that reads the hash unchanged from a file instead of embedding it in a
 shell command.
 :::
+
+## Resetting admin TOTP
+
+If the self-hosted admin login has two-factor authentication (TOTP) enabled and loses both the
+device and all recovery codes, there is deliberately **no** web UI reset — nobody stands above
+the one admin account. The emergency path requires server access:
+
+```bash
+php bin/totp-reset-admin.php
+```
+
+The script disables TOTP for the admin account (password login works again immediately, without
+a second factor) and writes an entry to the audit log. On Managed Cloud instances it aborts with
+a corresponding message, since no admin TOTP exists there in the first place.
 
 ## API Access & Authentication
 

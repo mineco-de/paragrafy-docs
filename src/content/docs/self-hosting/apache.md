@@ -8,13 +8,22 @@ Auf [Managed Cloud](/managed-cloud/overview/) übernehmen wir Server-Setup und V
 automatisch — dieser Schritt entfällt komplett.
 :::
 
-## 1. Dateien hochladen & Berechtigungen setzen
+## 1. Dateien hochladen, Abhängigkeiten installieren & Berechtigungen setzen
 
 ```bash
+composer install --no-dev --optimize-autoloader
+
 sudo chown -R www-data:www-data /var/www/paragrafy
 sudo find /var/www/paragrafy -type d -exec chmod 755 {} +
 sudo find /var/www/paragrafy -type f -exec chmod 644 {} +
 ```
+
+`composer install` zieht die Bibliotheken für die Zwei-Faktor-Authentifizierung
+(`spomky-labs/otphp`, `endroid/qr-code`) nach `vendor/` (nicht Teil des Git-Repos). Benötigt die
+PHP-Erweiterungen `sodium` und `gd` — beide sind bei einer Standard-PHP-8.2-Installation dabei,
+`gd` muss auf manchen Distributionen ggf. mit `apt install php8.2-gd` nachinstalliert werden. Ohne
+`vendor/` funktioniert alles andere weiterhin — nur der TOTP-Einrichtungsbildschirm unter
+**Admin → Sicherheit** zeigt dann statt des QR-Codes einen Hinweis "nicht installiert".
 
 ## 2. Apache VirtualHost Konfiguration
 
